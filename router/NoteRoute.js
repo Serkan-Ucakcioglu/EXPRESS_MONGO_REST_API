@@ -8,10 +8,7 @@ const {
   deleteNote,
 } = require("../controllers/NoteController");
 
-router.get("/", getAllNotes);
-router.get("/:id", getNote);
-router.post("/", createNote);
-router.put("/:id", updateNote);
-router.delete("/:id", deleteNote);
+router.route("/").get(getAllNotes).post(createNote);
+router.route("/:id").get(getNote).put(updateNote).delete(deleteNote);
 
 module.exports = router;
